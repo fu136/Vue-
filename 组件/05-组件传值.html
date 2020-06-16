@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        header {
+            text-align: center;
+            width: 100%;
+            line-height: 50px;
+            height: 50px;
+            color:white
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <com-b :name='name' :color='col'></com-b>
+    </div>
+</body>
+</html>
+<script>
+    Vue.component('com-b', {
+        props: ['name', 'color'],
+        template : `<header :style='{backgroundColor:color}'>{{ name }} 你好</header>`
+
+    })
+    new Vue({
+        el:'#app',
+        data : {
+            name : '召唤师',
+            col: 'green'
+        },
+        //加上： 表示传递的是一个变量， 不加: 表示传递的是普通的字符串
+        //template : ``
+    })
+</script>

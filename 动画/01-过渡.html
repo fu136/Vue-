@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        .abc-enter-active,
+        .abc-leave-active {
+            transition : opacity 5s;
+        }
+        .abc-enter,
+        .abc-leave-to {
+            opacity: 0;
+        }
+        .abc-enter-to,
+        .abc-leave {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <button @click='toggle'>切换</button>
+        <transition name='abc'>
+            <p v-show='bool'>浩浩联合</p>
+        </transition>
+    </div>
+</body>
+</html>
+<script>
+    
+    new Vue({
+        el : '#app',
+        data : {
+            bool : true
+        },
+        methods : {
+            toggle() {
+                this.bool = !this.bool
+            }
+        }
+    })
+</script>

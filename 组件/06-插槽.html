@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+
+    </div>
+</body>
+</html>
+<script>
+    var comA = {
+        props : ['name'],
+        template : `<div>
+        <p>111222</p>
+         <slot></slot>
+         </div>`
+    }
+    //slot表示插槽，未来调用时，会有内容来填充的
+    new Vue({
+        el : '#app',
+        template : `<div>
+            <comA>加点东西</comA>
+            <comA>再加点东西</comA>
+            <comA><b>asdasd</b></comA>
+            </div>`,
+        components : {
+            comA
+        }
+    })
+</script>

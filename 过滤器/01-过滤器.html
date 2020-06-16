@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        <p>{{ func(name)}}</p>
+        <p>{{ name | uppercase}}</p>
+        <p>{{ girl | firstuppercase }}</p>
+        <p>{{ xxx | xxxReplace }}</p>
+        <p>{{ name | argFilter(18, 100) }}</p>
+    </div>
+</body>
+</html>
+<script>
+    new Vue({
+        el : '#app',
+        data () {
+            return {
+                name : 'xiaohua',
+                girl : 'dilireba',
+                xxx : '你这个垃圾'
+            }
+        },
+        //过滤器就是一个函数
+        filters : {
+            //转换成大写
+            uppercase (input) {
+                return input.toUpperCase()
+            },
+            firstuppercase (input) {
+                return input.charAt(0).toUpperCase() + input.slice(1);
+            },
+            xxxReplace (input) {
+                //return input.replace(/三/g, '*');
+                return input.replace(/垃圾/g, '**');
+            },
+            argFilter (input, age, weight) {
+                return `${input} 今年 ${age}岁了 体重 ${weight} 公斤`
+            }
+        },
+        methods : {
+            func (input) {
+                return input.toUpperCase()
+            }
+        }
+
+    })
+</script>

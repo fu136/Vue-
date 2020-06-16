@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        <com-a title='你好啊' asd='召唤师'></com-a>
+        <com-b com-title='hello'></com-b>
+    </div>
+</body>
+</html>
+<script>
+    Vue.component('com-a', {
+        props: ['title', 'asd'],
+        template : `<h2>{{ title }} {{ asd }}</h2>`
+
+    })
+    Vue.component('com-b', {
+        props: ['comTitle'],
+        template : `<h2>{{ comTitle }}</h2>`
+
+    })
+    new Vue({
+        el:'#app'
+    })
+</script>

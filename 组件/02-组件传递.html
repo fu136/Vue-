@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        
+        <com-b></com-b>
+    </div>
+</body>
+</html>
+<script>
+   Vue.component('com-a', {
+        data () {
+            return {
+                name : '组件A'
+            }
+        },
+        template: `<div><p>{{ name }}</p></div>`
+   })
+   Vue.component('com-b', {
+        data () {
+            return {
+                name : '组件B'
+            }
+        },
+        template: `<div><p>{{ name }}</p>
+            <com-a></com-a>
+        </div>`
+   })
+
+    new Vue({
+        el: '#app'
+    })
+</script>

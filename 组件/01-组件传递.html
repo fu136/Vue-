@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id='app'>
+        <!-- 在html中 使用组件标签要使用 a-b 的格式 -->
+        <!-- <componentA></componentA> -->
+        <component-b></component-b>
+    </div>
+</body>
+</html>
+<script>
+    var componentA = {
+        data () {
+            return {
+                name : '组件A'
+            }
+        },
+        template : `<div><p>{{ name }}</p></div>`
+    }
+    var componentB = {
+        data () {
+            return {
+                name : '组件B'
+            }
+        },
+        //在组件的模板中使用字符串模板时，可以直接写小驼峰格式书写，也可以使用 a-b 格式
+        template : `<div><p>{{ name }}</p>
+            <componentA></componentA>
+			
+			//注意：使用这个组件，
+            <component-a></component-a>
+        </div>`,
+        //指定需要使用的组件
+        components : {
+            componentA
+        }
+        
+    }
+
+    new Vue({
+        el: '#app',
+        components : {
+            'componentA' : componentA,
+            'component-b' : componentB
+        }
+    })
+</script>

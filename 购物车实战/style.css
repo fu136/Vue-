@@ -1,0 +1,20 @@
+/* [v-cloak]{
+	display: none;
+} */
+table{
+	border: 1px solid palevioletred;
+	border-collapse:collapse;
+	border-spacing:0;
+	empty-cells:show;
+}
+th,td{
+	padding:8px 16px;
+	border:1px solid yellow;
+	text-align: enter;
+}
+th{
+	background:burlywood;
+	color:blueviolet;
+	font-weight: 600;
+	white-space:nowrap;
+}
